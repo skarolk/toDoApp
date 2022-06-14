@@ -68,3 +68,42 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## GraphQL
+```
+Schema => Resolver => Data Source
+
+# Base type
+type Todo {
+    id: ID
+    name: String
+    completed: Boolean
+}
+
+# Query definitions
+type Query {
+    getTodo(id: ID): Todo
+    listTodos: [Todo]
+}
+
+# Mutation definitions
+type Mutation {
+    createTodo(input: Todo): Todo
+}
+
+# Subscription definitions
+type Subscription {
+    onCreateTodo: Todo
+}
+
+GET => Query
+PUT => Mutation
+POST => Mutation
+DELETE => Mutation
+PATCH => Mutation
+
+! => non-nullable required field
+nullable field not required
+
+@model => AWS Amplify GraphQL Transform library directive that comes with queries, mutations, subscriptions, DynamoDB database, and resolver code as part of AWS AppSync GraphQL API
+```
